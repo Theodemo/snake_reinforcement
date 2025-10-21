@@ -1,7 +1,3 @@
-###############
-# Librairies  #
-###############
-
 import os
 import sys
 import pygame as pg
@@ -17,12 +13,6 @@ HEIGHT=NB_TILE_Y*TILE_SIZE
 
 MAIN_DIR = os.path.split(os.path.abspath(__file__))[0]
 DATA_DIR = os.path.join(MAIN_DIR, "data")
-#######################################################################
-# Classe Agent:
-# C'est le sujet d'entrainement.
-# Il est controler par le maitre d'entrainement
-# Ici sont decrite ces propriétes et les action qu'il peut réaliser
-#######################################################################
 
 class SubjectOfTraining:
     def __init__(self):
@@ -146,8 +136,8 @@ class PrintOneEpisode:
         sprite_subject = os.path.join(DATA_DIR, "sprites", "snake.png")
         self.image_subject = pg.image.load(sprite_subject).convert_alpha()
 
-        sprite_appel = os.path.join(DATA_DIR, "sprites", "appel.png")
-        self.image_appel = pg.image.load(sprite_appel).convert_alpha()
+        sprite_apple = os.path.join(DATA_DIR, "sprites", "apple.png")
+        self.image_apple = pg.image.load(sprite_apple).convert_alpha()
 
         sprite_map = os.path.join(DATA_DIR, "map", "map_snake.tmx")
         self.map_data=pytmx.load_pygame(sprite_map)
@@ -169,9 +159,9 @@ class PrintOneEpisode:
         for position in self.states[episode]:
             self.display_map()
             rect_subject=pg.Rect(position[0]*TILE_SIZE,position[1]*TILE_SIZE,TILE_SIZE,TILE_SIZE)
-            rect_appel=pg.Rect(5*TILE_SIZE,5*TILE_SIZE,TILE_SIZE,TILE_SIZE)
+            rect_apple=pg.Rect(5*TILE_SIZE,5*TILE_SIZE,TILE_SIZE,TILE_SIZE)
             self.screen.blit(self.image_subject, rect_subject)
-            self.screen.blit(self.image_appel,rect_appel)
+            self.screen.blit(self.image_apple,rect_apple)
             pg.display.flip()
             time.sleep(1)
 
